@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <section class="header">
+        <h1>Python Developer</h1>
+        <p>Programming with Python is my passion</p>
+        <img src="https://st4.depositphotos.com/1458807/31059/v/450/depositphotos_310595452-stock-illustration-anonymous-profile-old-style-glasses.jpg" alt="Headshot of myself">
+    </section>
+    <section id="skills">
+        <i class="fas fa-laptop-code"></i>
+        <h2>Skills</h2>
+        <ul>
+            <li>Python</li>
+            <li>Flask</li>
+            <li>SQLAlchemy</li>
+            <li>GitHub</li>
+            <li>Visual Studio Code</li>
+        </ul>
+    </section>
+    <section id="projects">
+        <div id="triangle3"></div>
+        <i class="fas fa-file-code"></i>
+        <h2>Projects</h2>
+        <div id="project-list">
+            {% for project in projects %}
+                <div id="project{{ project.id }}" class = "a-project">
+                    <h3>
+                        <a  href="{{ url_for('detail', id=project.id) }}">
+                            {{ project.title }}
+                        </a>
+                    </h3>
+                    <a href="{{ project.github_url }}" class="github-btn">
+                        <i class="fab fa-github"></i>
+                        View on Github
+                    </a>
+                    <p>
+                        {{ project.description }}
+                    </p>
+                    <p>
+                        {{ project.skills }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <div id="triangle4"></div>
+    </section>
+    <section id="contact">
+        <i class="fas fa-paper-plane"></i>
+        <h2>Contact Me</h2>
+        <p>
+            If you would like to get in touch, please see my LinkedIn or drop me an email.
+        </p>
+        <p>
+            <i class="fas fa-envelope"></i>
+            haider.ali385@gmail.com
+        </p>
+    </section>
+{% endblock %}
